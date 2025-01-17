@@ -3,11 +3,22 @@ import { postgresAdapter } from '@payloadcms/db-postgres'
 import path from 'path'
 import { buildConfig } from 'payload'
 import { fileURLToPath } from 'url'
-
-import { Users } from './collections/Users'
+import type { CollectionConfig } from 'payload'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
+
+export const Users: CollectionConfig = {
+  slug: 'users',
+  admin: {
+    useAsTitle: 'email',
+  },
+  auth: true,
+  fields: [
+    // Email added by default
+    // Add more fields as needed
+  ],
+}
 
 export default buildConfig({
   admin: {
