@@ -17,22 +17,23 @@
     "dev:worker": "wrangler dev --port 8771",
     "preview": "npm run build:worker && npm run dev:worker",
     "deploy": "npm run build:worker && wrangler deploy",
-    "cf-typegen": "wrangler types --env-interface CloudflareEnv cloudflare-env.d.ts"
+    "cf-typegen": "wrangler types --env-interface CloudflareEnv cloudflare-env.d.ts",
+    "info": "next info"
   },
   "dependencies": {
     "@opennextjs/cloudflare": "^0.3.8",
     "@payloadcms/db-postgres": "3.17.1",
     "@payloadcms/next": "3.17.1",
-    "@payloadcms/richtext-lexical": "3.17.1",
     "caniuse-lite": "^1.0.30001692",
     "cross-env": "^7.0.3",
     "graphql": "^16.8.1",
     "next": "15.1.4",
     "payload": "3.17.1",
+    "pg-cloudflare": "^1.1.1",
+    "prettier": "^3.4.2",
     "react": "19.0.0",
     "react-dom": "19.0.0",
-    "wrangler": "^3.103.1",
-    "prettier": "^3.4.2"
+    "wrangler": "^3.103.1"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3.2.0",
