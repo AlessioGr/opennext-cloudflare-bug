@@ -12,20 +12,27 @@
     "generate:types": "cross-env NODE_OPTIONS=--no-deprecation payload generate:types",
     "lint": "cross-env NODE_OPTIONS=--no-deprecation next lint",
     "payload": "cross-env NODE_OPTIONS=--no-deprecation payload",
-    "start": "cross-env NODE_OPTIONS=--no-deprecation next start"
+    "start": "cross-env NODE_OPTIONS=--no-deprecation next start",
+    "build:worker": "opennextjs-cloudflare",
+    "dev:worker": "wrangler dev --port 8771",
+    "preview": "npm run build:worker && npm run dev:worker",
+    "deploy": "npm run build:worker && wrangler deploy",
+    "cf-typegen": "wrangler types --env-interface CloudflareEnv cloudflare-env.d.ts"
   },
   "dependencies": {
-    "@payloadcms/db-mongodb": "latest",
-    "@payloadcms/next": "latest",
-    "@payloadcms/payload-cloud": "latest",
-    "@payloadcms/richtext-lexical": "latest",
+    "@opennextjs/cloudflare": "^0.3.8",
+    "@payloadcms/db-postgres": "3.17.1",
+    "@payloadcms/next": "3.17.1",
+    "@payloadcms/richtext-lexical": "3.17.1",
+    "caniuse-lite": "^1.0.30001692",
     "cross-env": "^7.0.3",
     "graphql": "^16.8.1",
-    "next": "15.1.0",
-    "payload": "latest",
+    "next": "15.1.4",
+    "payload": "3.17.1",
     "react": "19.0.0",
     "react-dom": "19.0.0",
-    "sharp": "0.32.6"
+    "wrangler": "^3.103.1",
+    "prettier": "^3.4.2"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3.2.0",
@@ -33,8 +40,7 @@
     "@types/react": "19.0.1",
     "@types/react-dom": "19.0.1",
     "eslint": "^9.16.0",
-    "eslint-config-next": "15.1.0",
-    "prettier": "^3.4.2",
+    "eslint-config-next": "15.1.4",
     "typescript": "5.7.2"
   },
   "engines": {
